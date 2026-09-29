@@ -63,7 +63,7 @@ Subscribers represent 27% of records. The remaining 73% form a large non-subscri
 
 ```text
 .
-├── final_project.py
+├── Customer Shopping Trends Dataset.py
 ├── shopping_behavior_updated.csv
 ├── Customer Shopping Trends Dataset.pdf
 └── README.md
@@ -76,7 +76,7 @@ pip install pandas numpy matplotlib seaborn ipywidgets kagglehub
 jupyter notebook
 ```
 
-The Python file was exported from Google Colab. For the best widget experience, paste or convert it back into a notebook and enable `ipywidgets` in Jupyter.
+`Customer Shopping Trends Dataset.py` was exported from Google Colab. For the best widget experience, paste or convert it back into a notebook and enable `ipywidgets` in Jupyter.
 
 ## Limitations and next steps
 
