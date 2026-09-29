@@ -1,56 +1,88 @@
-# Customer Shopping Trends Analysis & Interactive Dashboard
-The Consumer Behavior and Shopping Habits Dataset provides comprehensive insights into consumer preferences, trends, and patterns during their shopping experiences. This dataset encompasses a wide variety of variables, including demographic information, purchase history, product preferences, and purchase frequency. With this complete dataset, analysts and researchers can delve into the complexities of 
-the consumer decision-making process.  
+# Customer Shopping Trends Analysis and Interactive Dashboard
 
-## 1. Project Objective  
+An exploratory customer-shopping analysis in Python with visual summaries and an interactive Jupyter widget for filtering sales by season, category, location, age range, gender, and chart type.
 
-• To analyze consumer behavior and purchasing trends from the synthetic dataset.   
+## Project objective
 
-• To identify demographic factors such as age, gender, and location that affect sales.  
+- Analyze consumer behavior and purchasing trends in the dataset.
+- Identify demographic and behavioral factors associated with sales.
+- Create an interactive interface with `ipywidgets` for user-selected analysis.
 
-• To create a user interface (UI) using a Python library (ipywidgets) that allows users to perform interactive analysis based on their desired criteria.    
+## Tools and data
 
-## 2. Tools & Libraries Used  
+- Python, pandas, NumPy, Matplotlib, Seaborn, and ipywidgets
+- Google Colab/Jupyter Notebook
+- [Customer Shopping Behavior Dataset on Kaggle](https://www.kaggle.com/datasets/ayeshasiddiqa123/customer-shopping-behavior-dataset)
 
-• Python (Pandas, Matplotlib, Seaborn, NumPy)  
+The included dataset contains 3,900 transactions and 18 fields covering customer demographics, product details, purchase amount, location, season, subscription status, shipping, discounts, payment method, and purchase frequency.
 
-• Google Colab    
+| Data-quality check | Result |
+|---|---:|
+| Rows | 3,900 |
+| Columns | 18 |
+| Missing values | 0 |
+| Duplicate rows | 0 |
+| Total purchase amount | USD 233,081 |
 
-• Kaggle Dataset    
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Source: [Customer Shopping Behavior Dataset on Kaggle](https://www.kaggle.com/datasets/ayeshasiddiqa123/customer-shopping-behavior-dataset)    
+## Analysis workflow
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Format: CSV  
+1. Load the source data and validate its schema.
+2. Check missing values and duplicate rows.
+3. Profile product, location, season, shipping, and purchase-frequency distributions.
+4. Aggregate purchase amount and customer counts.
+5. Visualize location, category, season, frequency, subscription, and gender patterns.
+6. Explore filtered results through interactive Jupyter widgets.
 
-## 3. Project Methodology  
+## Interactive dashboard
 
-**• Data Preparation**    
+The dashboard supports filters for season, product category, customer location, age range, optional gender split, and bar or pie chart display.
 
-Import data from Kaggle and perform data cleaning using Pandas and NumPy libraries.  
+<img width="876" height="491" alt="Interactive customer shopping dashboard" src="https://github.com/user-attachments/assets/87cd9c67-09c1-455e-b4b5-818e994142fb" />
 
-**• Exploratory Data Analysis (EDA)**  
+## Key findings
 
-Validate data accuracy and analyze data distribution, such as product categories and seasonality.  
+### Best-selling categories
 
-**• Visual & Interactive UI**    
+Clothing is the primary revenue driver, generating USD 104,264 in sales, followed by Accessories at USD 74,200.
 
-Design graphs with Seaborn/Matplotlib and Create interactive filters using ipywidgets.  
+<img width="536" height="222" alt="Sales by product category" src="https://github.com/user-attachments/assets/c29de7b9-233c-4aba-9f6b-ed5ae864767d" />
 
+### Customer profile
 
-<img width="876" height="491" alt="image" src="https://github.com/user-attachments/assets/87cd9c67-09c1-455e-b4b5-818e994142fb" />  
+The source sample contains more male than female customers. Male spending is therefore higher in raw totals across the product categories, but this should not be interpreted as stronger preference without normalizing for the unequal group sizes.
 
-## 4. Results  
+<img width="526" height="485" alt="Purchases by gender and category" src="https://github.com/user-attachments/assets/6575efd7-913a-4fd2-8727-76e81609378d" />
 
-**Best-Selling Category:** Clothing was the primary revenue driver, generating $104,264 in sales, followed by accessories at $74,200.  
+### Membership opportunity
 
-<img width="536" height="222" alt="image" src="https://github.com/user-attachments/assets/c29de7b9-233c-4aba-9f6b-ed5ae864767d" />  
+Subscribers represent 27% of records. The remaining 73% form a large non-subscriber segment that could be explored for loyalty and retention campaigns.
 
-**Primary Audience:** Data clearly indicates that men (especially working-age individuals) are the largest consumer group, spending significantly more than women across all product categories.  
+<img width="375" height="179" alt="Subscription status distribution" src="https://github.com/user-attachments/assets/df19f6fa-1d1d-4bc5-a5c9-339badeb8be7" />
 
-<img width="526" height="485" alt="image" src="https://github.com/user-attachments/assets/6575efd7-913a-4fd2-8727-76e81609378d" />  
+## Repository contents
 
-**Growth Potential:** A significant 73% of customers are not members and tend to make repeat purchases only quarterly or annually. This presents a golden opportunity to create a loyalty program to encourage more frequent purchases.  
+```text
+.
+├── final_project.py
+├── shopping_behavior_updated.csv
+├── Customer Shopping Trends Dataset.pdf
+└── README.md
+```
 
-<img width="375" height="179" alt="image" src="https://github.com/user-attachments/assets/df19f6fa-1d1d-4bc5-a5c9-339badeb8be7" />  
+## Run locally
 
+```bash
+pip install pandas numpy matplotlib seaborn ipywidgets kagglehub
+jupyter notebook
+```
 
+The Python file was exported from Google Colab. For the best widget experience, paste or convert it back into a notebook and enable `ipywidgets` in Jupyter.
 
+## Limitations and next steps
+
+- The data is observational and does not establish causality.
+- Normalize gender comparisons because the source sample is imbalanced.
+- The dashboard uses purchase amount as sales and does not include product cost or profit.
+- Confirm dataset licensing and provenance before redistribution.
+- Add cohort, retention, average-order-value, and discount-response analyses.
+- Package the interactive analysis as a Streamlit or Plotly Dash application.

@@ -292,18 +292,18 @@ def plot_sales(season, category, location, age, split_gender, chart_type):
 
     # Filter
     if season != 'All':
-        fc = df[df['Season'] == season]
+        fc = fc[fc['Season'] == season]
     if category != 'All':
-        fc = df[df['Category'] == category]
+        fc = fc[fc['Category'] == category]
     if location != 'All':
-        fc = df[df['Location'] == location]
-    fc = df[(df['Age'] >= age[0]) & (df['Age'] <= age[1])]
+        fc = fc[fc['Location'] == location]
+    fc = fc[(fc['Age'] >= age[0]) & (fc['Age'] <= age[1])]
 
     # ---- Show Table ----
     if split_gender:
-        summary = df.groupby('Gender')['Purchase Amount (USD)'].sum().reset_index().rename(columns={'Purchase Amount (USD)':'Total Sales (USD)'})
+        summary = fc.groupby('Gender')['Purchase Amount (USD)'].sum().reset_index().rename(columns={'Purchase Amount (USD)':'Total Sales (USD)'})
     else:
-        summary = df.groupby('Category')['Purchase Amount (USD)'].sum().reset_index().rename(columns={'Purchase Amount (USD)':'Total Sales (USD)'})
+        summary = fc.groupby('Category')['Purchase Amount (USD)'].sum().reset_index().rename(columns={'Purchase Amount (USD)':'Total Sales (USD)'})
 
     print("Filtered Data Summary")
     display(summary)
